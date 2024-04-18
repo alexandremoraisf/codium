@@ -14,16 +14,29 @@ class UserController extends Controller
     }
 
     public function register(Request $request){
+
         $incomingFields = $request->validate([
-            'name' => ['required', 'min:3', 'max:10', Rule::unique('users', 'name')],
+            'name' => ['required'],
+            'lname' => ['nullable'],
             'email' => ['required', 'email', Rule::unique('users', 'email')],
-            'password' => ['required', 'min:3']
+            'family_situation' => ['required'],
+            'accepts_marketing' => ['nullable', 'boolean'],
+            'accepts_terms' => ['required', 'boolean', Rule::in('accepts_terms', '1')],
+            'accepts_surveys' => ['nullable', 'boolean'],
+            'password' => ['required']
         ]);
 
+
+        //if ($request->password !== $request->re_password){
+        //    return redirect()->back()->withInput()->withErrors('Passwords don\'t match');
+        //}
+
         $incomingFields['password'] = bcrypt($incomingFields['password']);
+
         $user = User::create($incomingFields);
         auth()->login($user);
         return redirect('/login');
+
     }
 
     public function login(Request $request){
@@ -32,7 +45,7 @@ class UserController extends Controller
             'loginPassword' => 'required'
         ]);
 
-        if (auth()->attempt(['name' => $incomingFields['loginName'],'password' => $incomingFields['loginPassword'] ])) {
+        if (auth()->attempt(['email' => $incomingFields['loginName'],'password' => $incomingFields['loginPassword'] ])) {
             $request->session()->regenerate();
         }
         else {
