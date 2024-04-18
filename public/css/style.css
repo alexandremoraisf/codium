@@ -1,0 +1,125 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif; 
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column; 
+    min-height: 100vh; 
+}
+
+nav {
+    background-color: #333; 
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around; 
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav li {
+    display: inline; 
+    margin-right: 20px; 
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    flex: 1; /* Allow main content to grow and fill the space */
+    padding: 20px;
+}
+
+.centered-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+h2 {
+    padding: 20px;
+}
+
+.login-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 30px;
+    border-radius: 5px;
+    background-color: #f0f0f0; 
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block; 
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-button {
+    background-color: #0446aa; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.alert-danger {
+    padding: 10px;
+    color: red;
+}
+
+.register-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 550px;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 30px;
+    border-radius: 5px;
+    background-color: #f0f0f0; 
+}
+
+select{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0; 
+    right: 0;
+    padding: 10px;
+}

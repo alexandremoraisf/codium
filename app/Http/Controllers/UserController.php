@@ -9,10 +9,6 @@ use Illuminate\Validation\Rule;
 class UserController extends Controller
 {
 
-    public function view(){
-        return view('login');
-    }
-
     public function register(Request $request){
 
         $incomingFields = $request->validate([
@@ -35,7 +31,7 @@ class UserController extends Controller
 
         $user = User::create($incomingFields);
         auth()->login($user);
-        return redirect('/login');
+        return redirect('/');
 
     }
 
@@ -52,7 +48,7 @@ class UserController extends Controller
             return redirect()->back()->withInput()->withErrors('Invalid username/password');
         }
 
-        // return redirect('/');
+        return redirect('/');
 
     }
 
