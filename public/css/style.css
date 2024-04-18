@@ -123,3 +123,17 @@ footer {
     right: 0;
     padding: 10px;
 }
+
+option {
+    padding: 5px;
+    font-size: medium;
+}
+
+label {
+    text-align: left;
+}
+
+
+input {
+    text-align: left;
+}
